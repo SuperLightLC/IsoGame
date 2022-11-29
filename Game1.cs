@@ -26,6 +26,9 @@ public class Main : Game
         _graphics.ApplyChanges();
         Window.AllowUserResizing = true;
 
+        //TestCode
+        var gameObject = new GameObject("DummyObject");
+
         base.Initialize();
     }
 

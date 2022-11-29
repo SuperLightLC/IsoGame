@@ -5,6 +5,13 @@ public class GameObject : Object
     public delegate void GameObjectRegister(object sender, GameObject gameObject);
     public static event GameObjectRegister Register;
 
+    public GameObject() : base("GameObject")
+    {
+        Name = "GameObject";
+
+        Register.Invoke(this, this);
+    }
+
     public GameObject(string name) : base("GameObject")
     {
         Name = name;
