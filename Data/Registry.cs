@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,6 +15,13 @@ public class Registry
 
     public static void Register(Dictionary<string, Texture2D> textures)
     {
-        textureRegistry = new Dictionary<string, Texture2D>(textures);
+        try
+        {
+            textureRegistry = new Dictionary<string, Texture2D>(textures);
+        }
+        catch (Exception exception)
+        {
+            Debug.Log(exception.Message + "\n" + exception.StackTrace, LogType.Error);
+        }
     }
 }

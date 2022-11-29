@@ -2,7 +2,7 @@ namespace IsoGame;
 
 public abstract class Object
 {
-    protected readonly string id = "EMPTY_ID";
+    protected readonly string id = "empty_id";
     public string Name { get; protected set; } = "Object";
 
     public Object(string id)

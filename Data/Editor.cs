@@ -21,6 +21,19 @@ public class Editor
 
     public void Update(GraphicsDevice graphicsDevice)
     {
+        UpdateGameObjects();
+    }
 
+    private void UpdateGameObjects()
+    {
+        foreach (var gameObject in gameObjects)
+        {
+            gameObject.Update();
+
+            foreach (var component in gameObject.GetAllComponent())
+            {
+                component.Update();
+            }
+        }
     }
 }

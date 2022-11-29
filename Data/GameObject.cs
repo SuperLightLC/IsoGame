@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace IsoGame;
 
 public class GameObject : Object
@@ -5,7 +7,9 @@ public class GameObject : Object
     public delegate void GameObjectRegister(object sender, GameObject gameObject);
     public static event GameObjectRegister Register;
 
-    public GameObject() : base("GameObject")
+    protected List<Component> components { get; private set; } = new List<Component>();
+
+    public GameObject() : base("game_object")
     {
         Name = "GameObject";
 
@@ -42,5 +46,10 @@ public class GameObject : Object
     public string GetId()
     {
         return id;
+    }
+
+    public List<Component> GetAllComponent()
+    {
+        return components;
     }
 }
