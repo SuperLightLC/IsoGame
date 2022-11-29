@@ -1,1 +1,0 @@
-namespace IsoGame.Enum;

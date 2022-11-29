@@ -35,7 +35,7 @@ public class AssetLoader
                             var texture = Texture2D.FromFile(graphicsDevice, loadingFile.FullName);
                             var textureId = "Editor." + loadingFile.Name.Replace(loadingFile.Extension, "");
                             textures.Add(textureId, texture);
-                            Console.WriteLine("Register Texture : " + textureId);
+                            Debug.Log("Register Texture : " + textureId, LogType.System);
                             break;
                         //Audios
                         case ("Audios"):
@@ -47,7 +47,7 @@ public class AssetLoader
         }
         catch (Exception exception)
         {
-            Console.WriteLine(exception.Message + "\n" + exception.StackTrace);
+            Debug.Log(exception.Message + "\n" + exception.StackTrace, LogType.Error);
         }
     }
 }

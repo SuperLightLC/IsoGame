@@ -16,7 +16,7 @@ public class Editor
     private void EventRegister(object sender, GameObject gameObject)
     {
         gameObjects.Add(gameObject);
-        Console.WriteLine("Register GameObject : " + gameObject.Name);
+        Debug.Log("Register GameObject : " + gameObject.Name, LogType.System);
     }
 
     public void Update(GraphicsDevice graphicsDevice)
