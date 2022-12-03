@@ -8,10 +8,10 @@ public abstract class Object
     public Object(string id)
     {
         this.id = id;
-        OverrideParameter();
+        Init();
+        Start();
     }
 
-    public abstract void OverrideParameter();
     public abstract void Init();
     public abstract void Start();
     public abstract void Update();

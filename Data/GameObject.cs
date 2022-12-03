@@ -23,11 +23,6 @@ public class GameObject : Object
         Register.Invoke(this, this);
     }
 
-    public override void OverrideParameter()
-    {
-
-    }
-
     public override void Init()
     {
 

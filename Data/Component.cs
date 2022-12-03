@@ -2,14 +2,11 @@ namespace IsoGame;
 
 public abstract class Component : Object
 {
-    public Component() : base("component")
+    public GameObject gameObject { get; private set; }
+
+    public Component(string id) : base(id)
     {
         Name = "Component";
-    }
-
-    public override void OverrideParameter()
-    {
-
     }
 
     public override abstract void Init();

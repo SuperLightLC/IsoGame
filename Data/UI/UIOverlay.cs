@@ -4,7 +4,12 @@ namespace IsoGame.UI;
 
 public class UIOverlay : Component
 {
-    private List<IUiComponent> uiComponents = new List<IUiComponent>();
+    private List<UiComponent> uiComponents = new List<UiComponent>();
+
+    public UIOverlay() : base("ui_overlay")
+    {
+
+    }
 
     public override void Init()
     {

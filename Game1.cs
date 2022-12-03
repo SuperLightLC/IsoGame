@@ -8,12 +8,11 @@ public class Main : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private readonly Editor editor;
+    private Editor editor;
 
     public Main()
     {
         _graphics = new GraphicsDeviceManager(this);
-        editor = new Editor();
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
@@ -25,6 +24,10 @@ public class Main : Game
         _graphics.PreferredBackBufferHeight = 720;
         _graphics.ApplyChanges();
         Window.AllowUserResizing = true;
+        GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
+
+        AssetLoader.LoadAssets(GraphicsDevice);
+        editor = new Editor(GraphicsDevice, Window);
 
         //TestCode
         var gameObject = new GameObject("DummyObject");
@@ -37,7 +40,6 @@ public class Main : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // TODO: use this.Content to load your game content here
-        AssetLoader.LoadAssets(GraphicsDevice);
     }
 
     protected override void Update(GameTime gameTime)
@@ -46,6 +48,7 @@ public class Main : Game
             Exit();
 
         // TODO: Add your update logic here
+        editor.Update();
 
         base.Update(gameTime);
     }
@@ -55,7 +58,7 @@ public class Main : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
-        editor.Update(GraphicsDevice);
+        editor.Draw();
 
         base.Draw(gameTime);
     }

@@ -49,5 +49,7 @@ public class AssetLoader
         {
             Debug.Log(exception.Message + "\n" + exception.StackTrace, LogType.Error);
         }
+
+        Registry.Register(textures);
     }
 }
